@@ -1,1 +1,212 @@
-PLACEHOLDER
+
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>שאקים בצפון 26</title>
+<style>
+:root{--bg:#f4f7f6;--card:#fff;--ink:#16231f;--muted:#63736d;--accent:#146c5b;--accent2:#e8f3ef;--warn:#fff5dc;--border:#dfe8e5;}
+*{box-sizing:border-box} body{margin:0;font-family:Arial,"Noto Sans Hebrew",sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+header{background:linear-gradient(135deg,#0e5b4d,#2c8572);color:#fff;padding:28px 18px 24px;position:sticky;top:0;z-index:5;box-shadow:0 2px 12px #0002}
+.wrap{max-width:980px;margin:auto} h1{margin:0;font-size:30px} .sub{opacity:.9;margin-top:4px}
+nav{display:flex;gap:8px;overflow:auto;padding:12px 0 0} nav button{white-space:nowrap;border:0;border-radius:22px;padding:9px 14px;background:#ffffff22;color:white;font-weight:700;cursor:pointer} nav button.active{background:#fff;color:#155f50}
+main{max-width:980px;margin:18px auto;padding:0 14px 50px} .page{display:none} .page.active{display:block}
+.hero{background:#fff;border:1px solid var(--border);border-radius:20px;padding:20px;margin-bottom:14px;box-shadow:0 4px 20px #2341}
+.hero h2{margin:0 0 6px} .pill{display:inline-block;background:var(--accent2);color:var(--accent);border-radius:18px;padding:6px 10px;margin:4px;font-size:13px;font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:17px;padding:16px;box-shadow:0 3px 16px #2341}
+.daycard{cursor:pointer;transition:.15s} .daycard:hover{transform:translateY(-2px)} .daycard h3{margin:4px 0}
+.timeline{display:grid;gap:10px} .slot{display:grid;grid-template-columns:74px 1fr;gap:12px;background:white;border:1px solid var(--border);border-radius:15px;padding:13px}
+.time{font-weight:800;color:var(--accent)} .slot h4{margin:0 0 3px} .slot p{margin:0;color:var(--muted)}
+.place-link{color:var(--accent);font-weight:800;cursor:pointer;text-decoration:underline;text-decoration-style:dotted}
+.altbox{background:var(--warn);border:1px solid #ecd9a6;border-radius:16px;padding:14px;margin-top:14px} .alt{padding:10px 0;border-bottom:1px solid #eadcaf} .alt:last-child{border-bottom:0}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px} .btn{display:inline-block;text-decoration:none;border:0;border-radius:11px;padding:10px 13px;background:var(--accent);color:#fff;font-weight:700;cursor:pointer} .btn.secondary{background:#eef3f1;color:#245b50}
+.modal{display:none;position:fixed;inset:0;background:#0008;z-index:20;padding:20px;overflow:auto} .modal.open{display:block} .modal-card{max-width:680px;margin:5vh auto;background:white;border-radius:20px;padding:22px;position:relative} .close{position:absolute;left:16px;top:13px;border:0;background:#eee;border-radius:50%;width:34px;height:34px;font-size:22px;cursor:pointer}
+.info-row{padding:9px 0;border-bottom:1px solid var(--border)} .info-row strong{display:block;color:#335a50;font-size:13px}
+.checkgroup{margin-bottom:16px} .checkgroup h3{margin-bottom:7px} label.check{display:flex;gap:9px;align-items:flex-start;background:#fff;border:1px solid var(--border);border-radius:11px;padding:10px;margin:6px 0} input[type=checkbox]{width:19px;height:19px;accent-color:var(--accent)}
+.weather{background:linear-gradient(135deg,#eef8ff,#fff);border:1px solid #cfe3ee;border-radius:16px;padding:14px;margin:12px 0}.weather strong{font-size:18px}.weather .wxmeta{color:var(--muted);font-size:13px}.status{display:inline-block;padding:4px 8px;border-radius:12px;font-size:12px;font-weight:800;background:#e9f7ee;color:#23743b}.status.pending{background:#fff2d8;color:#8b6100}.notice{background:#fff0ee;border:1px solid #efc6c0;border-radius:14px;padding:12px;margin:12px 0} .small{font-size:13px;color:var(--muted)}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:18px}
+@media(max-width:600px){h1{font-size:24px} .slot{grid-template-columns:62px 1fr} header{position:relative}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>🌿 שאקים בצפון 26</h1>
+    <div class="sub">18-22 באוגוסט 2026 | שאר ישוב • מטולה • רמת הגולן • כנרת</div>
+    <nav id="nav"></nav>
+  </div>
+</header>
+<main>
+<section id="home" class="page active">
+  <div class="hero">
+    <h2>היום שלנו</h2>
+    <p>כל הטיול במקום אחד: לו״ז, ניווט, טלפונים, חלופות לחום ולעייפות, ציוד וקישורי הזמנה.</p>
+    <span class="pill">אביתר</span><span class="pill">דינה</span><span class="pill">אבא</span><span class="pill">אמא</span>
+    <span class="pill">שירה</span><span class="pill">רות</span><span class="pill">אביגיל</span><span class="pill">אבנר</span><span class="pill">הלל</span>
+    <span class="pill">מרביעי: איילה + יעיר</span>
+    <div class="weather"><strong>🌤️ מזג אוויר חי</strong><div class="wxmeta">בכל יום מוצגת תחזית שמתעדכנת אוטומטית לפי אזור הטיול. תמיד בודקים שוב בבוקר המסלול.</div></div><div class="notice"><b>חשוב:</b> אוגוסט בצפון חם. לפני כל מסלול טבע בודקים באותו בוקר התראות רט״ג, עומס חום ומצב פתיחה. נקודות טבע לא מוסדרות אינן תחליף לאתר רחצה מוכרז.</div>
+  </div>
+  <div class="grid" id="dayCards"></div>
+  <h2 style="margin-top:24px">מידע מהיר</h2>
+  <div class="grid">
+    <div class="card"><h3>⛺ לינה ראשונה</h3><p><b>הפינה של יובל</b><br>שלישי ורביעי, שאר ישוב</p><button class="btn" onclick="showPlace('yuval')">כל הפרטים</button></div>
+    <div class="card"><h3>🏡 לינה שנייה</h3><p><b>הווילה בחיספין</b><br>חמישי-שבת, מיכל אוחנה</p><button class="btn" onclick="showPlace('villa')">כל הפרטים</button></div>
+    <div class="card"><h3>💳 תשלום</h3><p>יתרה למיכל אוחנה: <b>3,000 ₪</b></p></div>
+    <div class="card"><h3>🚙 רכבים</h3><p>מתכננים להגיע עם <b>שני רכבים</b>. לאשר סופית לפני היציאה.</p></div>
+  </div>
+</section>
+
+<section id="days" class="page">
+  <div id="dayView"></div>
+</section>
+
+<section id="bank" class="page">
+  <div class="hero"><h2>בנק אפשרויות</h2><p>לא חייבים לבצע הכול. זה המאגר שמאפשר לשנות תוכנית תוך דקה לפי חום, כוח ומצב רוח.</p></div>
+  <div class="grid" id="bankGrid"></div>
+</section>
+
+<section id="gear" class="page">
+  <div class="hero"><h2>רשימת ציוד</h2><p>אפשר לסמן. הסימונים נשמרים במכשיר הזה גם אם סוגרים את הדף.</p></div>
+  <div id="gearList"></div>
+</section>
+
+<section id="food" class="page">
+  <div class="hero"><h2>אוכל וקניות</h2><p>הקו שלנו: ארוחות בוקר עצמאיות, פיקניקים קלים, פעם פיצה, פעם מסעדה בשרית, וקנייה מסודרת לשבת.</p></div>
+  <div class="grid">
+    <div class="card"><h3>🥚 ארוחות בוקר</h3><p>ביצים, גבינות, לחם, ירקות, קורנפלקס/גרנולה, קפה, חלב ופירות.</p></div>
+    <div class="card"><h3>🥪 למסלולים</h3><p>כריכים, טונה/גבינה, ביצים קשות, פירות, נשנושים ומים קרים.</p></div>
+    <div class="card"><h3>🍕 ערב קל</h3><p>ערב אחד פיצה/אוכל מהיר באזור דפנה-הגושרים או חיספין.</p></div>
+    <div class="card"><h3>🥩 הארוחה המרכזית</h3><p>חמישי אחרי ג׳ילבון - איסקנדר. לאמת שעות וכשרות עדכנית לפני ההגעה.</p></div>
+    <div class="card"><h3>🛒 קניות לשבת</h3><p>שישי אחרי הכנרת - קנייה אחת מרוכזת בדרך חזרה לחיספין.</p></div>
+  </div>
+</section>
+
+<section id="contacts" class="page">
+  <div class="hero"><h2>אלפון וקישורים</h2><p>לחיצה על מספר תחייג. לכל מקום שיש בו ניווט מופיע גם Waze.</p></div>
+  <div class="grid" id="contactsGrid"></div>
+</section>
+</main>
+
+<div id="modal" class="modal" onclick="if(event.target===this) closeModal()">
+ <div class="modal-card">
+  <button class="close" onclick="closeModal()">×</button>
+  <div id="modalBody"></div>
+ </div>
+</div>
+
+<footer>גרסה 2 • עודכן ב-17.8.2026 • יש לאמת שוב שעות, זמינות והוראות בטיחות לפני היציאה</footer>
+
+<script>
+const PLACES={"rashbi": {"name": "קבר רשב״י - מירון", "emoji": "🙏", "why": "פותחים את הטיול בתפילת שחרית במקום משמעותי, לפני שמתחילים את יום הטבע.", "desc": "ציון רבי שמעון בר יוחאי במירון. האתר פתוח לאורך כל היממה. בתכנון שלנו מגיעים סביב 07:00, מתפללים שחרית כ-45 דקות, אוכלים משהו קל ויוצאים צפונה.", "hours": "פתוח 24 שעות ביממה", "phone": "לא נדרש לתכנון הביקור", "location": "מירון", "waze": "https://waze.com/ul?q=%D7%A7%D7%91%D7%A8%20%D7%A8%D7%91%D7%99%20%D7%A9%D7%9E%D7%A2%D7%95%D7%9F%20%D7%91%D7%A8%20%D7%99%D7%95%D7%97%D7%90%D7%99%20%D7%9E%D7%99%D7%A8%D7%95%D7%9F&navigate=yes", "site": "https://holy.org.il/epicenter/%D7%A8%D7%A9%D7%91%D7%99/", "bring": "סידורים, תפילין, כיפות, מים, ארוחת בוקר קלה.", "note": "שעת הגעה מתוכננת: 07:00."}, "snir": {"name": "שמורת נחל שניר - חצבאני", "emoji": "💦", "why": "מסלול המים הראשון - מתאים גם אחרי נסיעת בוקר ארוכה, אבל עדיין נותן תחושה אמיתית של טיול.", "desc": "שמורת מים מוצלת יחסית עם מסלולים באורכים שונים, קטעים רטובים ובריכת שכשוך. נבחר מסלול שמתאים לכ-2-3 שעות בקצב משפחתי.", "hours": "בקיץ: א׳-ה׳ ושבת 08:00-17:00, שישי וערבי חג 08:00-16:00. כניסה אחרונה שעה לפני הסגירה.", "phone": "רשות הטבע והגנים: *3639", "location": "גליל עליון, סמוך לבית הלל/הגושרים", "waze": "https://waze.com/ul?q=%D7%A9%D7%9E%D7%95%D7%A8%D7%AA%20%D7%98%D7%91%D7%A2%20%D7%A0%D7%97%D7%9C%20%D7%A9%D7%A0%D7%99%D7%A8%20%D7%97%D7%A6%D7%91%D7%90%D7%A0%D7%99&navigate=yes", "site": "https://www.parks.org.il/reserve-park/%D7%A9%D7%9E%D7%95%D7%A8%D7%AA-%D7%98%D7%91%D7%A2-%D7%A0%D7%97%D7%9C-%D7%A9%D7%A0%D7%99%D7%A8-%D7%97%D7%A6%D7%91%D7%90%D7%A0%D7%99/", "booking": "https://www.parks.org.il/%D7%94%D7%96%D7%9E%D7%A0%D7%95%D7%AA-%D7%9C%D7%90%D7%AA%D7%A8%D7%99%D7%9D/", "bring": "נעלי מים/הליכה, בגדי ים, כובע, 2-3 ליטר מים לאדם, קרם הגנה, מגבת.", "note": "לפני היציאה בודקים באתר רט״ג התראות עומס חום ומצב מסלול."}, "yuval": {"name": "הפינה של יובל", "emoji": "⛺", "why": "בסיס הלינה שלנו לשלישי ורביעי - קרוב מאוד לנחלי אצבע הגליל.", "desc": "מתחם קמפינג/אירוח בשאר ישוב. נביא אוהל נוסף מהבית בגלל מספר מקומות הלינה.", "hours": "צ׳ק-אין רשמי: 15:00-20:00 | צ׳ק-אאוט: עד 13:00", "phone": "079-580-5085", "location": "יובלים 36, שאר ישוב 1224000", "waze": "https://waze.com/ul?q=%D7%94%D7%A4%D7%99%D7%A0%D7%94%20%D7%A9%D7%9C%20%D7%99%D7%95%D7%91%D7%9C%20%D7%A9%D7%90%D7%A8%20%D7%99%D7%A9%D7%95%D7%91&navigate=yes", "site": "https://yuvalcorner.co.il/", "bring": "אוהל נוסף, שקי שינה/מצעים לפי הצורך, פנסים, מטענים, משחקים.", "note": "לינה: שלישי ורביעי בלילה. אם מגיעים לפני 15:00 - הכניסה המוקדמת אינה מובטחת."}, "columbia": {"name": "חוף קולומביה - בית הלל", "emoji": "🏊", "why": "טבילה רגועה בלי עוד מסלול. מתאים לסוף יום אם עדיין רוצים מים.", "desc": "נקודת רחצה מוכרת בחצבאני ליד בית הלל. לא אתר מוסדר של רט״ג ולכן בודקים במקום זרימה, גישה ובטיחות.", "hours": "נקודת טבע - ללא שעות קופה מסודרות", "phone": "אין מוקד רשמי", "location": "בית הלל / נחל שניר", "waze": "https://waze.com/ul?q=%D7%97%D7%95%D7%A3%20%D7%A7%D7%95%D7%9C%D7%95%D7%9E%D7%91%D7%99%D7%94%20%D7%91%D7%99%D7%AA%20%D7%94%D7%9C%D7%9C&navigate=yes", "bring": "נעלי מים, מגבת, שתייה, שקית לבגדים רטובים.", "note": "חלופה מצוינת אם רוצים רק מים ולא עוד הליכה."}, "ein_tina": {"name": "עין תינה", "emoji": "🌿", "why": "מסלול קצר ומרענן שמתאים לבוקר חם - חלק מההליכה בתוך מים.", "desc": "מסלול מים קליל יחסית בגולן המערבי. מתאים ליום רביעי אם רוצים טיול אך לא מסלול ארוך.", "hours": "נקודת טבע פתוחה; יש לבדוק התראות רט״ג/מועצה לפני היציאה", "phone": "מוקד רט״ג: *3639", "location": "מורדות הגולן, סמוך לכביש 918", "waze": "https://waze.com/ul?q=%D7%A2%D7%99%D7%9F%20%D7%AA%D7%99%D7%A0%D7%94&navigate=yes", "site": "https://www.parks.org.il/trip/ein-tina/", "bring": "נעלי מים סגורות, כובע, מים, בגדי ים.", "note": "מתאים להתחלה מוקדמת בגלל חום אוגוסט."}, "hashomer": {"name": "מוזיאון בית השומר", "emoji": "🏛️", "why": "תוכן היסטורי ומורשתי מהסוג שאהבתם במוזיאון אסירי המחתרות.", "desc": "מוזיאון משרד הביטחון בכפר גלעדי על בר גיורא, השומר, ראשית כוח המגן העברי וההתיישבות בגליל. כולל תצוגות, סרטים ופריטי מורשת.", "hours": "א׳-ה׳ 08:00-16:00 (מקור רשמי משרד הביטחון).", "phone": "04-694-1565", "location": "כפר גלעדי", "waze": "https://waze.com/ul?q=%D7%9E%D7%95%D7%96%D7%99%D7%90%D7%95%D7%9F%20%D7%91%D7%99%D7%AA%20%D7%94%D7%A9%D7%95%D7%9E%D7%A8%20%D7%9B%D7%A4%D7%A8%20%D7%92%D7%9C%D7%A2%D7%93%D7%99&navigate=yes", "site": "https://museums.mod.gov.il/sites/Hashomer/Pages/default.aspx", "bring": "אין ציוד מיוחד.", "note": "ביום רביעי זו תחנת תוכן אפשרית. אם לא מתחשק - מדלגים ומרוויחים מנוחה."}, "prehistoric": {"name": "מוזיאון האדם הקדמון", "emoji": "🦴", "why": "חלופה סגורה ומעניינת ממש ליד מקום הלינה - ארכאולוגיה והיסטוריה קדומה.", "desc": "מוזיאון במעיין ברוך עם אוסף גדול של ממצאים פרהיסטוריים, כלי צור, עצמות וממצאים מאזור עמק החולה.", "hours": "יש לתאם ביקור מראש - שעות הפעילות משתנות בתקופת החזרה לפעילות.", "phone": "050-288-2636", "location": "קיבוץ מעיין ברוך", "waze": "https://waze.com/ul?q=%D7%9E%D7%95%D7%96%D7%99%D7%90%D7%95%D7%9F%20%D7%94%D7%90%D7%93%D7%9D%20%D7%94%D7%A7%D7%93%D7%9E%D7%95%D7%9F%20%D7%9E%D7%A2%D7%99%D7%99%D7%9F%20%D7%91%D7%A8%D7%95%D7%9A&navigate=yes", "site": "https://ugmp.co.il/visit/", "bring": "אין ציוד מיוחד.", "note": "מתאים במיוחד כחלופת מזגן ביום חם."}, "mahalek": {"name": "המחלק - נחל דן ליד דפנה", "emoji": "🛟", "why": "אופציית מים קצרה וכיפית במקום עוד מסלול - בודי רפטינג טבעי וקפיצה למים.", "desc": "נקודת טבע ליד קיבוץ דפנה על נחל דן, המוכרת כמקום לגלישה קצרה עם הזרם, רחצה ובודי-רפטינג.", "hours": "שטח טבע פתוח - אין שעות קופה", "phone": "אין מוקד רשמי", "location": "ליד קיבוץ דפנה, נחל דן", "waze": "https://waze.com/ul?q=%D7%94%D7%9E%D7%97%D7%9C%D7%A7%20%D7%A7%D7%99%D7%91%D7%95%D7%A5%20%D7%93%D7%A4%D7%A0%D7%94&navigate=yes", "bring": "נעלי מים סגורות, בגד ים, מגבת. למי שנכנס לזרם - יכולת שחייה טובה.", "note": "⚠️ המקום אינו אתר רחצה מוסדר. אין מציל. לא נכנסים אם הזרם חזק, אם הגישה לא ברורה או אם יש הנחיית סגירה."}, "gilbon": {"name": "נחל ג'ילבון - המסלול הקצר", "emoji": "🏞️", "why": "מסלול השיא של הטיול: הליכה אמיתית, בזלת, מפלים ובריכה גדולה לשחייה - חדש לכם אחרי יהודיה בשנה שעברה.", "desc": "מסלול בגולן עם מפל דבורה ומפל ג'ילבון, קניון בזלת ובריכות. אנחנו מתכננים את הגרסה הקצרה ולא את המסלול הארוך לגשר הפקק.", "hours": "שטח שמורה פתוח, אך אין להסתמך על שעות בלבד - חובה לבדוק עדכוני רט״ג ועומסי חום ביום היציאה.", "phone": "מוקד רט״ג: *3639", "location": "שמורת טבע מורדות הגולן", "waze": "https://waze.com/ul?q=%D7%97%D7%A0%D7%99%D7%95%D7%9F%20%D7%A0%D7%97%D7%9C%20%D7%92%27%D7%99%D7%9C%D7%91%D7%95%D7%9F&navigate=yes", "site": "https://www.parks.org.il/reserve-park/%D7%A9%D7%9E%D7%95%D7%A8%D7%AA-%D7%98%D7%91%D7%A2-%D7%9E%D7%95%D7%A8%D7%93%D7%95%D7%AA-%D7%94%D7%92%D7%95%D7%9C%D7%9F/", "bring": "3 ליטר מים לאדם לפחות, כובע, נעלי הליכה/מים סגורות, בגדי ים, קרם הגנה, אוכל קל, טלפון טעון.", "note": "מתחילים מוקדם. המסלול כולל ירידות ועליות - לא לצאת למסלול הארוך בעומס חום."}, "villa": {"name": "הווילה בחיספין - מיכל אוחנה", "emoji": "🏡", "why": "בסיס הלינה שלנו לחמישי ושישי ולשבת.", "desc": "הווילה בחיספין. כתובת מדויקת תתווסף כשמיכל תשלח.", "hours": "שעת כניסה/יציאה - לעדכן מול מיכל", "phone": "054-534-9095", "location": "חיספין, רמת הגולן", "waze": "https://waze.com/ul?q=%D7%97%D7%99%D7%A1%D7%A4%D7%99%D7%9F&navigate=yes", "bring": "ציוד שבת, בגדים, אוכל וקניות, משחקים.", "note": "יתרה לתשלום למיכל: 3,000 ₪."}, "mandarina": {"name": "סטודיו מנדרינה - נטור", "emoji": "🔥", "why": "סדנה יצירתית שונה משוקולד - זכוכית, צבע ואש, קרוב לחיספין.", "desc": "סטודיו לזכוכית במושב נטור עם סדנאות, גלריה ובית קפה. מתאים כחלופה ממוזגת/מקורה או פעילות אחר הצהריים.", "hours": "לפי האתר הרשמי: א׳-ה׳ 08:30-18:00, שישי עד 14:00. סדנאות בתיאום מראש.", "phone": "079-580-5531", "location": "מושב נטור, רמת הגולן", "waze": "https://waze.com/ul?q=%D7%A1%D7%98%D7%95%D7%93%D7%99%D7%95%20%D7%9E%D7%A0%D7%93%D7%A8%D7%99%D7%A0%D7%94%20%D7%A0%D7%98%D7%95%D7%A8&navigate=yes", "site": "https://mandarina.org.il/", "bring": "להזמין מראש. אין צורך בציוד מיוחד.", "note": "מתאים במיוחד לחמישי אחה״צ או כחלופת חום."}, "kineret": {"name": "כנרת - רחצה של כמה שעות", "emoji": "🌊", "why": "הכנרת חשובה לנו כחלק מהטיול - לא עוד מסלול, אלא זמן חופשה אמיתי.", "desc": "נבחר חוף מוכרז בהתאם לעומס, רוח ומיקום באותו יום. המטרה: 2-3 שעות רחצה רגועות.", "hours": "לפי החוף הנבחר", "phone": "מוקד איגוד ערים כנרת: *55477", "location": "כנרת", "waze": "https://waze.com/ul?q=%D7%9B%D7%A0%D7%A8%D7%AA&navigate=yes", "bring": "בגדי ים, מגבות, צל, מים, פירות, קרם הגנה.", "note": "נשלב יחד עם רבי מאיר בעל הנס כדי שהנסיעה תהיה הגיונית."}, "rmeir": {"name": "קבר רבי מאיר בעל הנס", "emoji": "🕯️", "why": "שילוב טבע ורוח - הגיוני במיוחד ביום שבו יורדים לכנרת.", "desc": "ציון רבי מאיר בעל הנס בטבריה. אפשר לשלב תפילת מנחה/ערבית או תפילה קצרה בדרך לכנרת או ממנה.", "hours": "א׳-ה׳ פתוח 24 שעות. שישי/ערב חג נסגר שעה לפני כניסת שבת. מוצ״ש נפתח כשעה לאחר צאת שבת.", "phone": "1-800-800-991 | WhatsApp 058-684-8840", "location": "טבריה", "waze": "https://waze.com/ul?q=%D7%A7%D7%91%D7%A8%20%D7%A8%D7%91%D7%99%20%D7%9E%D7%90%D7%99%D7%A8%20%D7%91%D7%A2%D7%9C%20%D7%94%D7%A0%D7%A1%20%D7%98%D7%91%D7%A8%D7%99%D7%94&navigate=yes", "site": "https://rabimeir.co.il/", "bring": "סידור/תהילים לפי רצון.", "note": "בתכנון שלנו משולב עם ביקור בכנרת."}, "majrasa": {"name": "המג'רסה - המסלול הרטוב", "emoji": "💧", "why": "שישי צריך להיות קל, רטוב וכיפי - בלי לחזור מותשים להתארגנות לשבת.", "desc": "מסלול רטוב בשפך נחל דליות בבקעת הבטיחה. הולכים ולעיתים שוחים בתוואי המים, עם אפשרות לחזרה בשביל יבש.", "hours": "בקיץ: א׳-ה׳ ושבת 08:00-17:00; שישי וערבי חג 08:00-16:00. כניסה אחרונה שעה לפני הסגירה.", "phone": "מוקד רט״ג: *3639", "location": "בקעת הבטיחה, צפון-מזרח הכנרת", "waze": "https://waze.com/ul?q=%D7%A9%D7%9E%D7%95%D7%A8%D7%AA%20%D7%98%D7%91%D7%A2%20%D7%9E%D7%92%27%D7%A8%D7%A1%D7%94&navigate=yes", "site": "https://www.parks.org.il/reserve-park/%D7%A9%D7%9E%D7%95%D7%A8%D7%AA-%D7%94%D7%98%D7%91%D7%A2-%D7%9E%D7%92%D7%A8%D7%A1%D7%94-%D7%94%D7%91%D7%98%D7%99%D7%97%D7%94-%D7%91%D7%A7%D7%A2%D7%AA-%D7%91%D7%99%D7%AA-%D7%A6%D7%99%D7%99/", "booking": "https://www.parks.org.il/%D7%94%D7%96%D7%9E%D7%A0%D7%95%D7%AA-%D7%9C%D7%90%D7%AA%D7%A8%D7%99%D7%9D/", "bring": "נעלי מים סגורות, בגדי ים, מים, כובע, שקית אטומה לטלפון/מפתחות.", "note": "מתאים מאוד לשישי בבוקר."}, "einkeshatot": {"name": "עין קשתות", "emoji": "🏺", "why": "שעה של ארכאולוגיה יהודית ומורשת ליד חיספין, בלי להעמיס על יום שישי.", "desc": "כפר יהודי מתקופת המשנה והתלמוד ובית כנסת מפואר ששוחזר. הביקור כולל סרט וסיור רגלי קצר.", "hours": "מרץ-אוקטובר: א׳-ה׳ 09:00-17:00; שישי 09:00-16:00; שבת 09:00-16:00. כניסה אחרונה שעה לפני סגירה. בקיץ ייתכנו שעות מיוחדות.", "phone": "04-685-1002", "location": "עין קשתות, סמוך לנטור", "waze": "https://waze.com/ul?q=%D7%A2%D7%99%D7%9F%20%D7%A7%D7%A9%D7%AA%D7%95%D7%AA&navigate=yes", "site": "https://einkeshatot.org.il/", "bring": "כובע ומים אם מסתובבים בחוץ.", "note": "מומלץ להזמין כרטיסים מראש."}, "canada": {"name": "מרכז קנדה - מטולה", "emoji": "⛸️", "why": "פעילות סגורה, קלילה וכיפית לערב הראשון אחרי שניר ומקלחות.", "desc": "מתחם הספורט במטולה. הכיוון שלנו הוא החלקה על הקרח; יש לאמת טלפונית אילו מתקנים נוספים פעילים ביום ההגעה.", "hours": "שלישי: לפי המידע העדכני המפורסם עד 21:00. יש לאמת טלפונית את שעות ההחלקה והמתקנים הספציפיים.", "phone": "04-695-0370", "location": "הראשונים 1, מטולה", "waze": "https://www.waze.com/live-map/directions/il/north-district/metula/canada-centre?to=place.ChIJ6w754OK9HhURjRljbsBe5XI", "site": "https://www.canada-centre.co.il/", "bring": "גרביים, בגדים נוחים. לבדוק במקום אם נדרש ציוד נוסף.", "note": "🟠 לפני היציאה: טלפון קצר לאימות שההחלקה פתוחה ושעת כניסה מתאימה."}, "escape": {"name": "North Escape - קופר איירליינס", "emoji": "🧩", "why": "פעילות ערב משפחתית ומגבשת, ממש ליד מקום הלינה.", "desc": "חדר הבריחה קופר איירליינס בקיבוץ הגושרים. משחק של 70 דקות, ברמת קושי גבוהה, המבוסס על תעלומת D.B. Cooper.", "hours": "✅ הוזמן ליום רביעי 19.8.2026 בשעה 18:00 | משך המשחק כ-70 דקות", "phone": "055-667-4537", "location": "קיבוץ הגושרים", "waze": "https://waze.com/ul?q=North%20Escape%20%D7%94%D7%92%D7%95%D7%A9%D7%A8%D7%99%D7%9D&navigate=yes", "site": "https://www.north-escape.co.il/", "bring": "להגיע בזמן. טלפון טעון עם אישור ההזמנה זמין באפליקציה.", "note": "🟢 סגור ומאושר. אחרי המשחק ננסה מנחה בקריית שמונה ואז חוזרים לעל האש.", "confirmation": "assets/north-escape-confirmation.jpg", "room_image": "assets/cooper-airlines.jpg"}, "iskander": {"name": "מסעדת איסקנדר", "emoji": "🥩", "why": "הארוחה הבשרית המרכזית אחרי ג׳ילבון, בדרך הסבירה אל חיספין.", "desc": "מסעדה בשרית במתחם רפטינג נהר הירדן באזור גדות. לפני היציאה נאמת שעות וכשרות עדכנית.", "hours": "יש לאמת ביום חמישי לפני ההגעה", "phone": "", "location": "מתחם רפטינג נהר הירדן, ליד גדות", "waze": "https://waze.com/ul?q=%D7%9E%D7%A1%D7%A2%D7%93%D7%AA%20%D7%90%D7%99%D7%A1%D7%A7%D7%A0%D7%93%D7%A8&navigate=yes", "bring": "תיאבון 🙂", "note": "מתוכנן כארוחת צהריים מאוחרת אחרי ג׳ילבון."}, "bikes": {"name": "אופניים חאן אל על - אבני איתן", "emoji": "🚴", "why": "רכיבת ערב בגולן בשעות הנעימות יותר, קרוב יחסית ללינה בחיספין.", "desc": "השכרת אופניים באזור אבני איתן/דרום הגולן. התכנון שלנו: רכיבת ערב משפחתית בין 18:00 ל-20:00.", "hours": "🟠 18:00-20:00 בתכנון - לאשר סופית מול איש הקשר", "phone": "050-934-5552", "location": "חאן אל על, אבני איתן", "waze": "https://waze.com/ul?q=%D7%97%D7%90%D7%9F%20%D7%90%D7%9C%20%D7%A2%D7%9C%20%D7%90%D7%91%D7%A0%D7%99%20%D7%90%D7%99%D7%AA%D7%9F&navigate=yes", "site": "https://elal.okmedia.co.il/", "bring": "נעלי ספורט, מים, קסדה אם אינה כלולה, תאורה אם הרכיבה גולשת לחשכה.", "note": "איש קשר ישיר לאופניים: 050-934-5552."}};
+const DAYS=[{"id": "tue", "date": "שלישי 18.8", "title": "נחל שניר + שאר ישוב + מרכז קנדה", "weather": {"lat": 33.207, "lon": 35.57, "label": "אצבע הגליל / מטולה"}, "schedule": [["08:00-08:30", "יציאה מגילה", "יוצאים בנחת. ארוחת בוקר לדרך: סנדוויצ׳ים עם חביתה.", ""], ["11:30-12:00", "הגעה לנחל שניר", "הכניסה בשעה הזאת אושרה לנו. לא לשכוח את אישור ההרשמה.", "snir"], ["12:00-14:00", "נחל שניר", "מסלול מים בנחת, רחצה ועצירות.", "snir"], ["14:00-14:45", "צהריים בשטח", "גזייה + נקניקיות, לחמניות, קטשופ, חמוצים ותירס.", ""], ["15:00-17:00", "הפינה של יובל", "צ׳ק-אין רשמי מ-15:00. אוהל, מקלחות, קפה ומנוחה.", "yuval"], ["17:15 בערך", "יציאה למטולה", "נסיעה קצרה למרכז קנדה.", "canada"], ["ערב", "מרכז קנדה", "החלקה על הקרח ופעילויות פעילות במתחם. לאמת טלפונית לפני היציאה.", "canada"], ["אחרי הפעילות", "פיצה", "מחפשים פיצה כשרה באזור מטולה/קריית שמונה וחוזרים ללינה.", ""]], "altSchedules": [{"name": "לו״ז חלופי 1 - ערב רגוע", "items": [["15:00", "צ׳ק-אין ומנוחה", "נשארים בשאר ישוב בלי מרכז קנדה."], ["18:30", "פיצה/ארוחת ערב", "אזור קריית שמונה."], ["20:00", "ערב משפחתי", "משחקים, גיטרה ובוקסה."]]}], "alts": [["💦 רוצים עוד מים", "המחלק או חוף קולומביה, רק אם יש כוח ותנאי הגישה בטוחים.", "mahalek"], ["🧩 רוצים פעילות סגורה אחרת", "North Escape בהגושרים נשאר בבנק, אבל החדר שלנו כבר סגור לרביעי.", "escape"], ["😴 גמורים", "מדלגים על מרכז קנדה, פיצה מוקדמת וערב במקום.", "yuval"]]}, {"id": "wed", "date": "רביעי 19.8", "title": "עין תינה + בית השומר + קופר איירליינס", "weather": {"lat": 33.083, "lon": 35.65, "label": "עמק החולה / הגושרים"}, "schedule": [["07:30", "ארוחת בוקר", "קורנפלקס, חלב, פיתות, ביצים/גבינות, ירקות וקפה.", ""], ["08:30 בערך", "יציאה לעין תינה", "כדאי מוקדם יחסית לפני החום.", "ein_tina"], ["09:00-11:30", "עין תינה", "מסלול מים בנחת.", "ein_tina"], ["12:00", "צהריים קלים", "פיתות עם טונה; אפשר לבדוק פלאפל כשר באזור.", ""], ["13:00-14:15", "בית השומר - אם מתחשק", "מורשת והיסטוריה בכפר גלעדי. פתוח עד 16:00. אם לא מתחשק - מדלגים.", "hashomer"], ["14:30-17:15", "חזרה לשאר ישוב", "מקלחות, מנוחה, קפה והתארגנות לערב.", "yuval"], ["17:30", "יציאה להגושרים", "להגיע בנחת לפני ההזמנה.", "escape"], ["18:00-19:10", "קופר איירליינס", "✅ הוזמן ומאושר. North Escape, הגושרים. 70 דקות.", "escape"], ["19:10 ואילך", "מנחה - אם נמצא מניין מתאים", "ננסה מניין בקריית שמונה. לא בונים על שעה שלא אומתה.", ""], ["20:00 בערך", "על האש בשאר ישוב", "כנפיים, פרגיות, קבב וכל התוספות.", "yuval"]], "altSchedules": [{"name": "לו״ז חלופי 1 - בלי מוזיאון", "items": [["09:00", "עין תינה", "כרגיל."], ["12:00", "צהריים", "ארוחה קלה."], ["13:00-17:15", "חופש בשאר ישוב", "מנוחה ארוכה, בריכה/מים קרובים לפי מצב רוח."], ["18:00", "חדר בריחה", "קופר איירליינס - קבוע ולא מזיזים."]]}, {"name": "לו״ז חלופי 2 - בוקר רגוע", "items": [["בוקר", "קמים בנחת", "מוותרים על עין תינה."], ["10:30-12:30", "המחלק / מים קצרים", "רק אם מתאים."], ["אחה״צ", "מנוחה", "שומרים כוח לערב."], ["18:00", "חדר בריחה", "קופר איירליינס - קבוע."]]}], "alts": [["🏛️ תוכן", "בית השומר פתוח א׳-ה׳ עד 16:00; אפשר לדלג אם לא מושך.", "hashomer"], ["💦 מים קצרים", "המחלק / קולומביה כאופציה ספונטנית.", "mahalek"], ["🦴 סגור וממוזג", "מוזיאון האדם הקדמון רק בתיאום מראש.", "prehistoric"]]}, {"id": "thu", "date": "חמישי 20.8", "title": "ג׳ילבון + איסקנדר + חיספין + אופני ערב", "weather": {"lat": 32.845, "lon": 35.79, "label": "מרכז ודרום הגולן"}, "schedule": [["07:00", "קימה וארוחת בוקר", "אורזים ועוזבים את שאר ישוב.", ""], ["08:00 בערך", "יציאה לג׳ילבון", "מתחילים מוקדם בגלל החום.", "gilbon"], ["08:45-12:30", "נחל ג׳ילבון", "המסלול המרכזי של הטיול. מים, מפלים ועליות.", "gilbon"], ["12:30", "החלפת בגדים והתארגנות", "שתייה, פירות ובגדים יבשים.", ""], ["13:00-14:30 בערך", "איסקנדר", "ארוחת צהריים בשרית. לאמת שעות וכשרות לפני ההגעה.", "iskander"], ["15:30-16:00 בערך", "הגעה לחיספין", "צ׳ק-אין, מקלחות ומנוחה.", "villa"], ["18:00-20:00", "רכיבת אופניים", "חאן אל על, אבני איתן. 🟠 לאשר סופית מול 050-934-5552.", "bikes"], ["אחרי 20:00", "ערבית מאוחרת", "בחיספין/נוב לפי המניין שנאמת.", ""], ["ערב", "ארוחה בווילה", "פסטה / טוסטים / שקשוקה, לפי החשק.", "villa"]], "altSchedules": [{"name": "לו״ז חלופי 1 - חם מדי לג׳ילבון", "items": [["בוקר", "יציאה רגועה לגולן", "מוותרים על המסלול הארוך."], ["צהריים", "איסקנדר / אוכל אחר", "לפי מיקום."], ["אחה״צ", "התמקמות בחיספין", "מנוחה."], ["18:00-20:00", "אופניים", "אם מזג האוויר מאפשר."]]}, {"name": "לו״ז חלופי 2 - בלי אופניים", "items": [["08:45", "ג׳ילבון", "כרגיל."], ["13:00", "איסקנדר", "כרגיל."], ["16:00 ואילך", "חיספין בנחת", "מנוחה, משחקים וערב משפחתי."]]}], "alts": [["🔥 חם מדי", "סטודיו מנדרינה/פעילות סגורה בגולן במקום מסלול ארוך.", "mandarina"], ["🧩 פעילות סגורה", "חדר בריחה בקצרין נשאר בבנק האפשרויות."], ["🌅 ערב רגוע", "מוותרים על אופניים ונשארים בווילה.", "villa"]]}, {"id": "fri", "date": "שישי 21.8", "title": "כנרת בנחת + קניות + שבת", "weather": {"lat": 32.82, "lon": 35.65, "label": "מזרח הכנרת / דרום הגולן"}, "schedule": [["08:00", "ארוחת בוקר רגועה", "בלי לחץ. מתארגנים לכנרת ולשבת.", "villa"], ["09:30 בערך", "יציאה לכנרת", "נבחר חוף לפי רוח, עומס ומזג אוויר של אותו בוקר.", "kineret"], ["10:15-13:30", "כנרת", "כמה שעות טובות של שחייה ורביצה. אפשר לשלב ספורט ימי אם מתחשק.", "kineret"], ["12:30 בערך", "צהריים בחוף", "פיתות, פסטרמה, חמוצים, תירס, ירקות ושתייה קרה.", ""], ["13:30-14:30", "קניות לשבת", "קנייה מרוכזת בדרך חזרה לחיספין.", ""], ["15:00 לכל המאוחר", "חזרה לווילה", "מקלחות, בישולים, מנוחה והתארגנות עם מרווח ביטחון גדול.", "villa"], ["לפני שבת", "הכול מוכן", "לא מוסיפים עוד פעילות.", ""]], "altSchedules": [{"name": "לו״ז חלופי 1 - מג׳רסה + כנרת קצרה", "items": [["08:30", "יציאה למג׳רסה", "מסלול מים קצר."], ["09:00-11:00", "מג׳רסה", "רטוב וכיפי."], ["11:30-13:00", "כנרת קצרה", "רחצה וצהריים."], ["13:30", "קניות וחזרה", "מתחילים שבת מוקדם."]]}, {"name": "לו״ז חלופי 2 - שישי הכי רגוע", "items": [["בוקר", "קמים בנחת", "ארוחת בוקר ארוכה."], ["10:30-13:00", "כנרת", "רק כנרת."], ["13:00", "קניות", "ומיד חזרה לחיספין."], ["14:30", "שבת", "בישולים, מקלחות ומנוחה."]]}], "alts": [["💧 רוצים עוד מסלול מים", "המג׳רסה היא האופציה המרכזית, אבל רק אם רוצים יום יותר פעיל.", "majrasa"], ["🏺 רוצים תוכן", "עין קשתות אפשרית במקום חלק מזמן הכנרת, לא חובה.", "einkeshatot"], ["🔥 חם מאוד", "מקצרים את זמן החוץ וחוזרים מוקדם לחיספין.", "villa"]]}, {"id": "sat", "date": "שבת 22.8", "title": "שבת בחיספין + חזרה", "weather": {"lat": 32.845, "lon": 35.79, "label": "חיספין"}, "schedule": [["בוקר", "שבת רגועה", "תפילות, סעודה, מנוחה ומשחקים.", "villa"], ["צהריים", "זמן משפחתי", "מנוחה, קריאה ומשחקי קופסה.", ""], ["אחה״צ", "הליכה מקומית קצרה", "רק אם נעים ומתחשק. בלי נסיעות.", ""], ["מוצ״ש", "אריזה ויציאה", "חזרה לגילה, ירושלים.", ""]], "altSchedules": [{"name": "לו״ז חלופי", "items": [["כל היום", "מנוחה מלאה", "נשארים בווילה עד מוצ״ש."]]}], "alts": [["🛋️ רגוע לגמרי", "נשארים בווילה עד מוצ״ש."], ["🚶 יש כוח", "הליכה מקומית קצרה בלבד, בלי להזיז רכבים בשבת."]]}];
+const GEAR={"לינה וקמפינג": ["אוהל נוסף", "יתדות ופטיש קטן", "שקי שינה/מצעים לפי הצורך", "כריות", "פנסים ופנסי ראש", "כבל מאריך/מפצל"], "מים ושמש": ["נעלי מים סגורות לכל אחד", "בגדי ים", "מגבות", "שקיות לבגדים רטובים", "כיסוי אטום לטלפון/מפתחות", "קרם או ספריי הגנה SPF 50", "כובעים", "משקפי שמש", "בקבוקי מים גדולים", "וסטים/חליפות הצלה לכנרת"], "אוכל ובישול": ["גזייה + בלון גז רזרבי", "מנגל", "פחמים", "חומר הדלקה", "מלקחיים למנגל", "טוסטר", "צידנית/מקרר עם קרח וקרחומים", "לחמניות ופיתות", "ביצים", "גבינות", "חלב וקורנפלקס", "טונה", "פסטרמה", "נקניקיות", "כנפיים", "פרגיות", "קבב", "פסטה ורוטב", "מצרכים לשקשוקה", "ירקות ופירות", "חמוצים", "תירס", "קטשופ/חרדל/מיונז", "קפה/תה/סוכר", "חטיפים", "סכין וקרש חיתוך", "מחבת וסיר", "פותחן", "כלי אוכל", "נייר כסף", "נייר סופג", "מגבונים", "שקיות אשפה"], "אלקטרוניקה": ["מחשב נייד", "מטען למחשב", "מטעני טלפונים", "כבלים", "סוללות גיבוי", "מטעני רכב", "בוקסה + מטען"], "שבת": ["בגדי שבת", "נרות שבת", "גפרורים/מצית", "חלות", "יין/מיץ ענבים", "גביע", "כיסוי חלות", "סידורים/חומשים", "פלטה/מיחם - לבדוק אם יש בווילה"], "ביגוד ואישי": ["בגדים קלים", "בגדים להחלפה", "נעלי הליכה", "סנדלים", "תחתונים/גרביים", "כלי רחצה", "תרופות קבועות", "כיפות", "תפילין", "סידורים"], "משחקים וגיבוש": ["קלפים", "טאקי/קוד ניימס/משחקי קופסה", "כדור", "גיטרה", "בוקסה", "ספרים/תשבצים"], "רכב ובטיחות": ["2 רכבים - לאשר סופית", "ערכת עזרה ראשונה", "מים רזרביים ברכב", "פנס", "מספרי טלפון חשובים שמורים"]};
+
+const navItems=[['home','🏠 בית'],['days','🗓️ ימים'],['bank','🔄 חלופות'],['gear','🎒 ציוד'],['food','🍽️ אוכל'],['contacts','☎️ אלפון']];
+const nav=document.getElementById('nav');
+navItems.forEach(([id,label],i)=>{
+  const b=document.createElement('button'); b.textContent=label; b.className=i===0?'active':'';
+  b.onclick=()=>openPage(id,b); nav.appendChild(b);
+});
+function openPage(id,btn){
+  document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('nav button').forEach(x=>x.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function openDays(dayId){
+  const b=[...document.querySelectorAll('nav button')].find(x=>x.textContent.includes('ימים'));
+  openPage('days',b); renderDay(dayId);
+}
+const cards=document.getElementById('dayCards');
+DAYS.forEach(d=>{
+  const el=document.createElement('div'); el.className='card daycard';
+  el.innerHTML=`<div class="small">${d.date}</div><h3>${d.title}</h3><p>${d.schedule.slice(0,3).map(s=>s[1]).join(' • ')}</p><button class="btn">פתחו את היום</button>`;
+  el.onclick=()=>openDays(d.id); cards.appendChild(el);
+});
+function placeSpan(id){
+  if(!id || !PLACES[id]) return '';
+  return `<div style="margin-top:6px"><span class="place-link" onclick="showPlace('${id}')">פתחו מידע מלא על ${PLACES[id].name}</span></div>`;
+}
+function renderDay(dayId){
+  const d=DAYS.find(x=>x.id===dayId)||DAYS[0];
+  document.getElementById('dayView').innerHTML=`
+    <div class="hero"><div class="small">${d.date}</div><h2>${d.title}</h2><div id="weather-${d.id}" class="weather">🌤️ טוען מזג אוויר עדכני ל${d.weather.label}...</div></div>
+    <div class="timeline">${d.schedule.map(s=>`<div class="slot"><div class="time">${s[0]}</div><div><h4>${s[1]}</h4><p>${s[2]}</p>${placeSpan(s[3])}</div></div>`).join('')}</div>
+    <div class="altbox"><h3>🗓️ לו״זים חלופיים</h3>${(d.altSchedules||[]).map((a,i)=>`<details class="alt"><summary><b>${a.name||('לו״ז חלופי '+(i+1))}</b></summary><div style="padding-top:8px">${a.items.map(x=>`<div style="margin:7px 0"><b>${x[0]} - ${x[1]}</b><br>${x[2]}</div>`).join('')}</div></details>`).join('')}</div>
+    <div class="altbox"><h3>💡 בנק אפשרויות ליום הזה</h3>${d.alts.map(a=>`<div class="alt"><b>${a[0]}</b><br>${a[1]}${a[2]?placeSpan(a[2]):''}</div>`).join('')}</div>
+    <div class="actions">${DAYS.map(x=>`<button class="btn secondary" onclick="renderDay('${x.id}')">${x.date}</button>`).join('')}</div>`;
+  loadWeather(d);
+}
+
+async function loadWeather(d){
+  const el=document.getElementById('weather-'+d.id); if(!el||!d.weather) return;
+  const date='2026-'+d.date.match(/(\d+)\.(\d+)/).slice(1).reverse().map((x,i)=>i===0?String(x).padStart(2,'0'):String(x).padStart(2,'0')).join('-');
+  // date construction for August 2026
+  const day=d.date.match(/(\d+)\./)[1].padStart(2,'0');
+  const target=`2026-08-${day}`;
+  try{
+    const url=`https://api.open-meteo.com/v1/forecast?latitude=${d.weather.lat}&longitude=${d.weather.lon}&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=Asia%2FJerusalem&start_date=${target}&end_date=${target}`;
+    const r=await fetch(url); const w=await r.json();
+    const max=Math.round(w.daily.temperature_2m_max[0]), min=Math.round(w.daily.temperature_2m_min[0]), rain=w.daily.precipitation_probability_max[0]??0, code=w.daily.weather_code[0];
+    const desc=code===0?'בהיר':code<=3?'מעונן חלקית':code<=67?'ייתכן גשם':code>=95?'סופות רעמים אפשריות':'משתנה';
+    const advice=max>=34?'⚠️ חם מאוד - להתחיל מסלולים מוקדם, הרבה מים והגנה מהשמש.':max>=31?'☀️ חם - מים, כובע ו-SPF 50, ולהעדיף שעות בוקר/ערב.':'👍 מזג אוויר נוח יחסית לטיול.';
+    el.innerHTML=`<strong>🌤️ ${d.weather.label}: ${desc}, ${min}°-${max}°</strong><div class="wxmeta">סיכוי משקעים מרבי: ${rain}% • מתעדכן אונליין</div><div style="margin-top:6px">${advice}</div>`;
+  }catch(e){el.innerHTML='<strong>🌤️ מזג אוויר</strong><div class="wxmeta">לא הצלחנו לעדכן כרגע. בדקו שוב כשיש חיבור לרשת.</div>';}
+}
+
+renderDay('tue');
+
+function showPlace(id){
+ const p=PLACES[id]; if(!p) return;
+ let phoneLink = p.phone && /\d/.test(p.phone) ? `<a class="btn secondary" href="tel:${p.phone.replace(/[^0-9+*]/g,'')}">☎️ חיוג</a>` : '';
+ let book = p.booking ? `<a class="btn secondary" target="_blank" href="${p.booking}">🎟️ הזמנה</a>` : '';
+ let confirm = p.confirmation ? `<a class="btn secondary" target="_blank" href="${p.confirmation}">📄 אישור הזמנה</a>` : '';
+ let roomimg = p.room_image ? `<a class="btn secondary" target="_blank" href="${p.room_image}">🖼️ פרטי החדר</a>` : '';
+ let site = p.site ? `<a class="btn secondary" target="_blank" href="${p.site}">🔗 אתר רשמי</a>` : '';
+ document.getElementById('modalBody').innerHTML=`
+   <h2>${p.emoji||'📍'} ${p.name}</h2>
+   <div class="info-row"><strong>למה בחרנו אותו?</strong>${p.why}</div>
+   <div class="info-row"><strong>מה יש שם?</strong>${p.desc}</div>
+   <div class="info-row"><strong>שעות / כניסה</strong>${p.hours}</div>
+   <div class="info-row"><strong>מיקום</strong>${p.location}</div>
+   <div class="info-row"><strong>טלפון</strong>${p.phone}</div>
+   <div class="info-row"><strong>מה להביא</strong>${p.bring}</div>
+   <div class="info-row"><strong>הערה שלנו</strong>${p.note}</div>
+   <div class="actions"><a class="btn" target="_blank" href="${p.waze}">🚗 נווט ב-Waze</a>${phoneLink}${site}${book}${confirm}${roomimg}</div>`;
+ document.getElementById('modal').classList.add('open');
+}
+function closeModal(){document.getElementById('modal').classList.remove('open')}
+
+const bankGrid=document.getElementById('bankGrid');
+Object.entries(PLACES).forEach(([id,p])=>{
+ const el=document.createElement('div'); el.className='card';
+ el.innerHTML=`<h3>${p.emoji||'📍'} ${p.name}</h3><p>${p.why}</p><button class="btn" onclick="showPlace('${id}')">פתחו פרטים</button>`;
+ bankGrid.appendChild(el);
+});
+
+const gearList=document.getElementById('gearList');
+let saved=JSON.parse(localStorage.getItem('shakimGear')||'{}');
+Object.entries(GEAR).forEach(([cat,items])=>{
+ let block=document.createElement('div'); block.className='checkgroup'; block.innerHTML=`<h3>${cat}</h3>`;
+ items.forEach((item,idx)=>{
+   const key=cat+'::'+item;
+   const lab=document.createElement('label'); lab.className='check';
+   lab.innerHTML=`<input type="checkbox" ${saved[key]?'checked':''}> <span>${item}</span>`;
+   lab.querySelector('input').onchange=e=>{saved[key]=e.target.checked;localStorage.setItem('shakimGear',JSON.stringify(saved));};
+   block.appendChild(lab);
+ });
+ gearList.appendChild(block);
+});
+
+const contactsGrid=document.getElementById('contactsGrid');
+['yuval','villa','snir','canada','escape','ein_tina','hashomer','gilbon','iskander','bikes','kineret','majrasa','einkeshatot','mandarina'].forEach(id=>{
+ const p=PLACES[id]; const el=document.createElement('div'); el.className='card';
+ el.innerHTML=`<h3>${p.name}</h3><p>${p.location}<br><b>${p.phone}</b></p><div class="actions"><button class="btn" onclick="showPlace('${id}')">פרטים</button><a class="btn secondary" target="_blank" href="${p.waze}">Waze</a></div>`;
+ contactsGrid.appendChild(el);
+});
+</script>
+</body>
+</html>
